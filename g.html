@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        #div {
+            background-image: url(nkar.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 780px;
+            height: 550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        #half {
+            background-image: url(1.png);
+            height: 54px;
+            width: 85px;
+            border-radius: 25px 25px 25px 25px;
+        }
+
+        #hall {
+            background-image: url(2.png);
+            height: 54px;
+            width: 85px;
+            border-radius: 25px 25px 25px 25px;
+
+
+        }
+
+        #call {
+            height: 54px;
+            width: 87px;
+            background-image: url(3.png);
+            border-radius: 25px 25px 25px 25px;
+            
+        }
+        
+
+        #finish {
+            background-image: url(10.png);
+            height: 54px;
+            width: 87px;
+            border-radius: 25px 25px 25px 25px;
+        }
+
+        #time {
+            height: 75px;
+            width: 75px;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 50px;
+            color: brown;
+            background-color: aliceblue;
+        }
+
+        .patasxan {
+            height: 25px;
+            width: 150px;
+            margin-top: 20px;
+            border-radius: 15px;
+            margin-left: 15px;
+        }
+
+        .harcitex {
+            width: 550px;
+            height: 70px;
+            background-color: rgb(69, 72, 123);
+            color: aliceblue;
+            margin-top: 100px;
+            margin-top: 130px;
+            border-radius: 35px;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .correctStyle{
+            background-color: green;
+            
+        }
+        .loseStyle{
+            display: none;
+        }
+        .lose{
+            width: 250px;
+            height: 250px;
+            background-color: blue;
+            color: beige;
+        }
+        
+        .finStyle{
+            background-image: url(nkar1.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 780px;
+            height: 550px;
+            font-size: 30px;
+            color: red;
+        }
+        .finStyle2{
+            width: 780px;
+            height: 50px;
+            font-size: 30px;
+            color: red;
+            background-color: aquamarine;
+        }
+        .play{
+            background-color: rgb(177, 177, 207);
+            display: flex;
+            justify-content: center;
+            width: 780px;
+            height: 50px;
+
+        }
+        #play{
+            width: 65px;
+            height: 40px;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div class="play"><button id="play">play</button></div>
+    <div id="div">
+        <div style="height: 150px;width: 750px;margin-top: 30px;display: flex;justify-content: space-between;">
+            <div style="justify-content: flex-start;">
+                <button id='half'></button>
+                <button id='hall'></button>
+                <button id='call'></button>
+            </div>
+            <div style="display: flex;justify-content: flex-end;color: aliceblue;">
+                ԴՈՒՔ ՈՒՆԵՔ<p id="gumar">0</p>ԴՐԱՄ
+                <button id="finish" class="button"></button>
+            </div>
+        </div>
+
+        <div id="time"></div>
+
+        <div class="harcitex" id="question"></div>
+
+        <div  id="answers" style="width: 500px;height: 150px;margin-top: 10px;margin-top:20px;">
+            <div style="display: flex;justify-content: center;">
+                <button id="0" class="patasxan"></button>
+                <button  id="1"class="patasxan"></button>
+
+            </div>
+            <div style="display: flex;justify-content: center;">
+                <button id="2" class="patasxan"></button>
+                <button id="3" class="patasxan"></button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <audio id ='audioRight' src="jisht.mp3"></audio>
+    <audio id="audioSpasel" src="spasel.mp3"></audio>
+    <audio id="audioLose" src="lose.mp3"></audio>
+    <script id="js" src="milionater.js"></script>
+
+</body>
+
+</html>
