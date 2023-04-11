@@ -44,9 +44,9 @@
             width: 87px;
             background-image: url(3.png);
             border-radius: 25px 25px 25px 25px;
-            
+
         }
-        
+
 
         #finish {
             background-image: url(10.png);
@@ -84,23 +84,27 @@
             border-radius: 35px;
             display: flex;
             justify-content: center;
-            
+
         }
-        .correctStyle{
+
+        .correctStyle {
             background-color: green;
-            
+
         }
-        .loseStyle{
+
+        .loseStyle {
             display: none;
         }
-        .lose{
+
+        .lose {
             width: 250px;
             height: 250px;
             background-color: blue;
             color: beige;
         }
-        
-        .finStyle{
+
+
+        .finStyle {
             background-image: url(nkar1.jpg);
             background-position: center;
             background-repeat: no-repeat;
@@ -109,15 +113,18 @@
             height: 550px;
             font-size: 30px;
             color: red;
+
         }
-        .finStyle2{
+
+        .finStyle2 {
             width: 780px;
             height: 50px;
             font-size: 30px;
             color: red;
             background-color: aquamarine;
         }
-        .play{
+
+        .play {
             background-color: rgb(177, 177, 207);
             display: flex;
             justify-content: center;
@@ -125,14 +132,30 @@
             height: 50px;
 
         }
-        #play{
+
+        #play {
             width: 65px;
             height: 40px;
             border-radius: 15px;
             font-size: 20px;
         }
-        
-        
+
+        .callDiv {
+            width: 250px;
+            height: 250px;
+            background-color: black;
+            color: aliceblue;
+            font-size: 20px;
+        }
+
+        .hallDiv {
+            width: 250px;
+            height: 250px;
+            background-color: rgb(43, 94, 114);
+            font-size: 15px;
+            color: aliceblue;
+
+        }
     </style>
 </head>
 
@@ -155,10 +178,10 @@
 
         <div class="harcitex" id="question"></div>
 
-        <div  id="answers" style="width: 500px;height: 150px;margin-top: 10px;margin-top:20px;">
+        <div id="answers" style="width: 500px;height: 150px;margin-top: 10px;margin-top:20px;">
             <div style="display: flex;justify-content: center;">
                 <button id="0" class="patasxan"></button>
-                <button  id="1"class="patasxan"></button>
+                <button id="1" class="patasxan"></button>
 
             </div>
             <div style="display: flex;justify-content: center;">
@@ -170,7 +193,8 @@
 
     </div>
 
-    <audio id ='audioRight' src="jisht.mp3"></audio>
+
+    <audio id='audioRight' src="jisht.mp3"></audio>
     <audio id="audioSpasel" src="spasel.mp3"></audio>
     <audio id="audioLose" src="lose.mp3"></audio>
     <script id="js" src="milionater.js"></script>

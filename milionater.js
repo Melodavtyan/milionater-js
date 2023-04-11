@@ -14,10 +14,11 @@ class Game {
     money = 0
     untouchMoney1 = 8000
     untouchMoney2 = 64000
-
     currentQuestion
     correctAnswer
     fin = document.getElementById('finish')
+    finDiv = document.createElement('div');
+
 
 
     constructor(playername) {
@@ -58,7 +59,11 @@ class Game {
         })
 
         this.hallElem.addEventListener('click', () => {
-            Help.hall()
+            let cor = this.currentQuestion.value.answer.options[this.currentQuestion.value.answer.current]
+
+            Help.hall(cor)
+            this.hallElem.style.display = 'none'
+
         })
 
 
@@ -79,7 +84,7 @@ class Game {
 
         })
         this.callElem.addEventListener('click', () => {
-            Help.call()
+            Help.call(this.currentQuestion.value.answer)
             this.callElem.style.display = 'none'
 
         })
@@ -116,36 +121,41 @@ class Game {
         }
     }
     makeMoney() {
-        this.money += this.currentQuestion.value.answer.point
+        this.money = this.currentQuestion.value.answer.point
         let gumar = document.getElementById('gumar')
         gumar.innerHTML = this.money
     }
     finish() {
+        let d = document.getElementById('xaxiDiv')
+        d.remove()
         let finMony = this.money
-        this.gameOver()
+        this.finDiv.classList.add('finStyle')
+        document.body.append(this.finDiv);
         this.money = finMony
         let div1 = document.createElement('div');
-        div1.innerHTML = `ՍԱԿԱՅՆ ՎԱՍՏԱԿԵԼ ԵՔ ${this.money} ԴՐԱՄ`
+        div1.innerHTML = `ԴՈՒՔ ՆԱԽԸՆՏՐԵՑԻՔ ՎԵՐՑՆԵԼ ${this.money} ԴՐԱՄ`
         div1.className = "finStyle2";
         document.body.append(div1);
 
     }
 
     gameOver() {
-        let d = document.getElementById('div')
+        let d = document.getElementById('xaxiDiv')
         d.remove()
-        let div = document.createElement('div');
-        div.className = "finStyle";
-        document.body.append(div);
+        this.finDiv.className = "finStyle";
+        document.body.append(this.finDiv);
         if (this.money >= this.untouchMoney1 && this.money <= this.untouchMoney2) {
             this.money = this.untouchMoney1
+            this.finDiv.innerHTML = `ԴՈՒՔ ՊԱՐՏՎԵՑԻՔ ԲԱՅՑ ՈՒՆԵՔ ԱՆՁԵՌՆՄԽԵԼԻ ԳՈՒՄԱՐ ${this.money} ԴՐԱՄ`
+
         } else if (this.money >= this.untouchMoney2) {
             this.money = this.untouchMoney2
-
+            this.finDiv.innerHTML = `ԴՈՒՔ ՊԱՐՏՎԵՑԻՔ ԲԱՅՑ ՈՒՆԵՔ ԱՆՁԵՌՆՄԽԵԼԻ ԳՈՒՄԱՐ ${this.money} ԴՐԱՄ`
         } else {
             this.money = 0
+            this.finDiv.innerHTML = `ԴՈՒՔ ՊԱՐՏՎԵՑԻՔ`
         }
-        div.innerHTML = `ԴՈՒՔ ՊԱՐՏՎԵՑԻՔ ԲԱՅՑ ՈՒՆԵՔ ԱՆՁԵՌՆՄԽԵԼԻ ԳՈՒՄԱՐ ${this.money} ԴՐԱՄ`
+
 
     }
 
@@ -167,11 +177,11 @@ class Game {
         this.audioSpasel.autoplay = true
         this.audioSpasel.load()
         this.timeer()
-        
+
 
     }
     timeer() {
-        if(this.interval){
+        if (this.interval) {
             clearInterval(this.interval);
             this.interval = null;
         }
@@ -181,12 +191,14 @@ class Game {
             time -= 1
             t.innerHTML = time
         }, 1000);
-        if(time === 0){
+        if (time === 0) {
             this.gameOver()
         }
 
-        
+
     }
+
+
 }
 
 
@@ -219,24 +231,62 @@ class Help {
         return result
     }
 
-    static call() {
-        let tellefon = prompt('գրել այն հերախեսահամարը որին ուզում եք զանգահարել')
-        let i = 20
-        alert(`դուք ունեք ընդհամենը ${i} վարկյան`)
+    static call(answer) {
+        let zang = document.createElement('div')
+        zang.classList.add('callDiv')
+        zang.innerHTML = '...'
+        let question = document.getElementById('question')
+        setTimeout(() => {
+            zang.innerHTML = `բարեվ ախպերս միլիոնատեր խաղին եմ մասնակցում
+             կարող ես պատասխանել այս հարցին
+              <<${this.questionText}>>`
+        }, 3000);
+        setTimeout(() => {
+            zang.innerHTML = `հարցն հետևյալն է՝
+              <<${question.innerHTML}>>`
+        }, 6000);
+        setTimeout(() => {
+            zang.innerHTML = `ախպերս ինչ միլիոնատեր խաղ էլ չզանգես ես համարին`
+        }, 9000);
+        setTimeout(() => {
+            zang.classList.remove('callDiv')
+            zang.html = ''
+        }, 12000);
+
+
+        let div = document.getElementById('div')
+        div.append(zang)
+
 
     }
 
-    static hall() {
-        let result = []
-        for (let i = 0; i < 4; i++) {
-            result.push(i)
+    static hall(correct) {
+        let y = 20
+        let p = document.createElement('p')
+
+        let hallTable = document.createElement('div')
+        hallTable.classList.add('hallDiv')
+        for (let i = 1; i < 5; i++) {
+            p.innerHTML = `${y}`
+            hallTable.append(p)
+            y += 20
+
+            if (y === 80) {
+                y = `80%---${correct}`
+            }
         }
-        let obsh=100
-        
+        setTimeout(() => {
+            hallTable.classList.remove('hallDiv')
+            hallTable.html = ''
+        }, 3000);
+
+
+        let div = document.getElementById('div')
+        div.append(hallTable)
+
+
 
     }
 }
 
 let milionater = new Game("Melo")
-
-
