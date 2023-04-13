@@ -140,7 +140,7 @@ class Game {
     }
 
     gameOver() {
-        let d = document.getElementById('xaxiDiv')
+        let d = document.getElementById('div')
         d.remove()
         this.finDiv.className = "finStyle";
         document.body.append(this.finDiv);
